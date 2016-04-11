@@ -1,17 +1,17 @@
 import sys
 
 
-def main(args):
-    j = Player(False, False, "Enzo Valverdi", "Armador")
-    j.add_assists()
-    j.add_caps()
-    j.add_counterattack()
-    j.add_foul()
-    j.add_goal(9)
-    print(j.name_lastname)
-    print(j.position)
-    print(j.goals)
-    sys.exit()
+#def main(args):
+#    j = Player(False, False, "Enzo Valverdi", "Armador")
+#    j.add_assists()
+#    j.add_caps()
+#    j.add_counterattack()
+#    j.add_foul()
+#    j.add_goal(9)
+#    print(j.name_lastname)
+#    print(j.position)
+#    print(j.goals)
+#    sys.exit()
 
 
 class Player:
@@ -20,7 +20,6 @@ class Player:
     position = ""
 
     # Player data of match
-    shots = 0
     goals_9m = 0
     goals_6m = 0
     goals = 0
@@ -39,15 +38,12 @@ class Player:
     is_rival = False
     head_off = 0
 
-    def __init__(self, goalkeeper, rival, name = "Jugador ",
+    def __init__(self, goalkeeper = False, rival = False, name = "Jugador ",
                  position = "Jugador de Campo"):
         self.goalkeeper = goalkeeper
         self.is_rival = rival
         self.name_lastname = name
         self.position = position
-
-    def add_shots(self):
-        self.shots += 1
 
     def add_goal(self, metre):
         if metre == 9:
@@ -91,9 +87,6 @@ class Player:
 
     def add_headoff(self):
         self.head_off += 1
-
-    def get_off_shots(self):
-        self.shots -= 1
 
     def get_off_goal(self, metre):
         if metre == 9:
@@ -149,5 +142,5 @@ class Player:
                      self.foul - self.two_minutes)
         return(score)
 
-if __name__ == '__main__':
-    main(sys.argv)
+#if __name__ == '__main__':
+#    main(sys.argv)
